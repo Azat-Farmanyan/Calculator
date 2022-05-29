@@ -70,6 +70,12 @@ buttons.addEventListener('click', e => {
       a = +currentResult
       b = ''
    }
+   if (btnValue === '%') {
+      const percent = a / 100
+      result.innerText = percent
+      a = String(percent)
+   }
+
    if (btnValue === 'C') {
       result.style.fontSize = '96px'
       a = ''
