@@ -18,6 +18,12 @@ buttons.addEventListener('click', e => {
                a += btnValue
             }
          } else a += btnValue
+         if (String(a).length > 6) {
+            result.style.fontSize = '50px'
+         }
+         if (String(a).length > 10) {
+            result.style.fontSize = '35px'
+         }
          result.innerText = a
          console.log('a: ', a);
       } else {
@@ -26,6 +32,12 @@ buttons.addEventListener('click', e => {
                b += btnValue
             }
          } else b += btnValue
+         if (String(b).length > 6) {
+            result.style.fontSize = '50px'
+         }
+         if (String(b).length > 10) {
+            result.style.fontSize = '35px'
+         }
          result.innerText = b
 
          console.log('b: ', b);
@@ -36,14 +48,30 @@ buttons.addEventListener('click', e => {
       currentOperator = btnValue
       console.log(btnValue);
    }
+
+   if (btnValue === '+/-') {
+      console.log('+/-');
+      if (a != '' & b === '') {
+         a *= -1
+         result.innerText = a
+      }
+      if (a & b != '') {
+         b *= -1
+         result.innerText = b
+      }
+   }
+
    if (btnValue === '=') {
       operatorClicked = false
       let currentResult = getResult(a, b, currentOperator)
+      setSize(currentResult)
+
       result.innerText = currentResult
       a = +currentResult
       b = ''
    }
    if (btnValue === 'C') {
+      result.style.fontSize = '96px'
       a = ''
       b = ''
       result.innerText = 0
@@ -51,23 +79,33 @@ buttons.addEventListener('click', e => {
    if (btnValue === '') {
       if (a != '' & b == '') {
          a = a.slice(0, -1)
+         setSize(a)
          result.innerText = a
       } else {
          b = b.slice(0, -1)
+         setSize(b)
          result.innerText = b
       }
    }
 })
 
 
-
+function setSize(str) {
+   if (String(str).length < 7) {
+      result.style.fontSize = '96px'
+   }
+   if (String(str).length > 6) {
+      result.style.fontSize = '50px'
+   }
+   if (String(str).length > 10) {
+      result.style.fontSize = '35px'
+   }
+}
 function getResult(x, y, getOperator) {
    switch (getOperator) {
       case '+': return +x + +y; break;
       case '-': return +x - +y; break;
       case 'X': return +x * +y; break;
-      case '/':
-         if (y === '0') return 'Error'
-         return +x / +y; break;
+      case '/': return +x / (y === '0' ? 0 : +y); break;
    }
 }
