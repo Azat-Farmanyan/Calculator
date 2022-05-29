@@ -1,0 +1,269 @@
+@charset "UTF-8";
+@font-face {
+  font-family: "Lufga";
+  src: url("../fonts/Fontspring-DEMO-lufga-medium.eot");
+  src: local("вє"), url("../fonts/Fontspring-DEMO-lufga-medium.woff") format("woff"),
+    url("../fonts/Fontspring-DEMO-lufga-medium.ttf") format("truetype"),
+    url("../fonts/Fontspring-DEMO-lufga-medium.svg") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lufga";
+  src: url("../fonts/Fontspring-DEMO-lufga-regular.eot");
+  src: local("вє"), url("../fonts/Fontspring-DEMO-lufga-regular.woff") format("woff"),
+    url("../fonts/Fontspring-DEMO-lufga-regular.ttf") format("truetype"),
+    url("../fonts/Fontspring-DEMO-lufga-regular.svg") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Lufga";
+  src: url("../fonts/Fontspring-DEMO-lufga-semibold.eot");
+  src: local("вє"), url("../fonts/Fontspring-DEMO-lufga-semibold.woff") format("woff"),
+    url("../fonts/Fontspring-DEMO-lufga-semibold.ttf") format("truetype"),
+    url("../fonts/Fontspring-DEMO-lufga-semibold.svg") format("svg");
+  font-weight: 600;
+  font-style: normal;
+}
+
+/*РћР±РЅСѓР»РµРЅРёРµ*/
+* {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+
+*,
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+:focus,
+:active {
+  outline: none;
+}
+
+a:focus,
+a:active {
+  outline: none;
+}
+
+nav,
+footer,
+header,
+aside {
+  display: block;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font-size: 100%;
+  line-height: 1;
+  font-size: 14px;
+  -ms-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+input,
+button,
+textarea {
+  font-family: inherit;
+}
+
+input::-ms-clear {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+a,
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+ul li {
+  list-style: none;
+}
+
+img {
+  vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+/*--------------------*/
+
+body{
+   font-family: 'Work Sans', sans-serif;
+   font-style: normal;
+   background: #4E505F;
+   color: #fff;
+   position: relative;
+}
+.calc-body{
+   background: #17171C;
+   display: flex;
+   flex-direction: column;
+   padding: 20px;
+   max-width: 375px;
+   margin: 0 auto;
+}
+/*--------Toggle switch------------*/
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin: 16px auto 80px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2E2F38;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #4E505F;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #fff;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+/*--------End of Toggle switch------------*/
+
+.result{
+   font-weight: 300;
+   font-size: 96px;
+   line-height: 96px;
+   text-align: right;
+   margin-bottom: 16px;
+   user-select: none;
+   min-height: 96px;
+}
+.over-result{
+  font-weight: 300;
+  font-size: 40px;
+  line-height: 40px;
+  text-align: right;
+  margin-bottom: 16px;
+  user-select: none;
+  min-height: 40px;
+  color: rgba(255, 255, 255, 0.363);
+}
+/*--------Buttons------------*/
+.buttons{
+   display: grid;
+   grid-template-areas: 
+   'c plus-minus percent division'
+   'seven eight nine multiply'
+   'four five six minus'
+   'one two three plus'
+   'dot zero delete plus';
+   grid-gap: 16px;
+   justify-items: center;
+}
+.btn{
+   font-weight: 400;
+   font-size: 32px;
+   line-height: 72px;
+   /* Button */
+   width: 72px;
+   height: 72px;
+   text-align: center;
+   border-radius: 24px;
+
+   cursor: pointer;
+   user-select: none;
+
+   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+   transition: all 0.2s ease;
+}
+.btn:hover{
+   filter: brightness(120%);
+}
+.btn:active{
+   filter: brightness(90%);
+}
+.bg-light-grey{
+   background: #4E505F;
+}
+.bg-blue{
+   background: #4B5EFC;
+}
+.bg-dark-grey{
+   background: #2E2F38;
+}
+.delete img{
+   align-items: center;
+   margin: 19px auto;
+}
+/*--------End of Buttons------------*/
+
+
+
