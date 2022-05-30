@@ -15,38 +15,41 @@ buttons.addEventListener('click', e => {
       if (operatorClicked === false) {
          if (btnValue === '.') {
             if (a !== '' & !String(a).includes('.')) {
+               if (checkInputLength(a)) {
+                  a += btnValue
+               }
+            }
+         } else {
+            if (checkInputLength(a)) {
                a += btnValue
             }
-         } else a += btnValue
-         if (String(a).length > 6) {
-            result.style.fontSize = '50px'
          }
-         if (String(a).length > 10) {
-            result.style.fontSize = '35px'
-         }
+         setSize(a)
+
          result.innerText = a
-         console.log('a: ', a);
+         // console.log('a: ', a);
       } else {
          if (btnValue === '.') {
             if (!b.includes('.')) {
+               if (checkInputLength(b)) {
+                  b += btnValue
+               }
+            }
+         } else {
+            if (checkInputLength(b)) {
                b += btnValue
             }
-         } else b += btnValue
-         if (String(b).length > 6) {
-            result.style.fontSize = '50px'
          }
-         if (String(b).length > 10) {
-            result.style.fontSize = '35px'
-         }
+         setSize(b)
          result.innerText = b
 
-         console.log('b: ', b);
+         // console.log('b: ', b);
       }
    }
    if (operationArray.includes(btnValue)) {
       operatorClicked = true
       currentOperator = btnValue
-      console.log(btnValue);
+      // console.log(btnValue);
    }
 
    if (btnValue === '+/-') {
@@ -106,6 +109,13 @@ function setSize(str) {
    if (String(str).length > 10) {
       result.style.fontSize = '35px'
    }
+   if (String(str).length > 16) {
+      result.style.fontSize = '27px'
+   }
+}
+function checkInputLength(params) {
+   // console.log('inut length: ', params.length);
+   return params.length > 9 ? false : true
 }
 function getResult(x, y, getOperator) {
    switch (getOperator) {
